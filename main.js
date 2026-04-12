@@ -49,3 +49,14 @@ const obs = new IntersectionObserver((entries) => {
   });
 }, { threshold: 0.12 });
 reveals.forEach(r => obs.observe(r));
+
+// ── CAROUSEL INFINITE LOOP ──
+const track = document.querySelector('.carousel-track');
+if (track) {
+  const cards = Array.from(track.querySelectorAll('.member-card'));
+  
+  // Clone all cards and append to end for seamless loop
+  cards.forEach(card => {
+    track.appendChild(card.cloneNode(true));
+  });
+}
